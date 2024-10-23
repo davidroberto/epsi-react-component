@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
-import Header from "../Header";
-import ListArticles from "../ListArticles";
+import Header from "../components/Header";
+import ListArticles from "../components/ListArticles";
+import Sidebar from "../components/Sidebar";
 
 // on créé un composant : une fonction dont le but est de créer un bout de page en HTML
 // grâce au langage JSX
@@ -21,6 +22,8 @@ function App() {
       <Header />
 
       <ListArticles />
+
+      <Sidebar isMailDisplayed={false} />
 
       <Footer />
     </div>
