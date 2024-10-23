@@ -1,3 +1,4 @@
+import Counter from "../components/Counter";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ListArticles from "../components/ListArticles";
@@ -19,13 +20,15 @@ function App() {
 
   return (
     <div>
-      <Header user={"david robert"} />
+      {/* <Header user={"david robert"} />
 
       <ListArticles />
 
-      <Sidebar isMailDisplayed={false} />
+      <Sidebar isMailDisplayed={false} /> 
 
-      <Footer />
+      <Footer />*/}
+
+      <Counter />
     </div>
   );
 }
