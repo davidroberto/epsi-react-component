@@ -2,6 +2,7 @@ import Counter from "../components/Counter";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ListArticles from "../components/ListArticles";
+import Message from "../components/Message";
 import Sidebar from "../components/Sidebar";
 
 // on créé un composant : une fonction dont le but est de créer un bout de page en HTML
@@ -26,9 +27,11 @@ function App() {
 
       <Sidebar isMailDisplayed={false} /> 
 
-      <Footer />*/}
+      <Footer />
 
-      <Counter />
+      <Counter />*/}
+
+      <Message />
     </div>
   );
 }
