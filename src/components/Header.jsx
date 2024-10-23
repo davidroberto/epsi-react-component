@@ -1,4 +1,4 @@
-function Header() {
+function Header({ user }) {
   return (
     <header>
       <h1>Epsi React</h1>
@@ -9,6 +9,8 @@ function Header() {
           <li>Contact</li>
         </ul>
       </nav>
+
+      {user ? <p>Bienvenue {user}</p> : <p>Merci de vous connecter</p>}
     </header>
   );
 }
