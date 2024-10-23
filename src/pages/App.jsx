@@ -1,17 +1,12 @@
-import Header from "./Header";
+import Footer from "../components/Footer";
+import Header from "../Header";
+import ListArticles from "../ListArticles";
 
 // on créé un composant : une fonction dont le but est de créer un bout de page en HTML
 // grâce au langage JSX
 function App() {
   // on est dans le coeur de la fonction / du composant
   // avant le return, on peut utiliser tout le js qu'on veut
-
-  // avant le return, le but est de préparer des données dans des variables
-  const articles = [
-    { id: 1, title: "React" },
-    { id: 2, title: "Angular" },
-    { id: 3, title: "Vue" },
-  ];
 
   const title = "Titre de la page";
 
@@ -25,11 +20,9 @@ function App() {
     <div>
       <Header />
 
-      <ul>
-        {articles.map((article) => (
-          <li key={article.id}>{article.title}</li>
-        ))}
-      </ul>
+      <ListArticles />
+
+      <Footer />
     </div>
   );
 }
