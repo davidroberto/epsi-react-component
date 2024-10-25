@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-function Pokemons() {
+// Créez un composant Pokemons
+// qui doit afficher la liste des pokemons issus de cette API :
+// https://pokebuildapi.fr/api/v1/pokemon
+
+function PokemonsPage() {
   // je créé un state pour stocker les pokemons
   // avec en valeur par défaut un tableau vide
   const [pokemons, setPokemons] = useState([]);
