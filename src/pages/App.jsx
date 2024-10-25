@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ListArticles from "../components/ListArticles";
 import Message from "../components/Message";
+import Pokemons from "../components/Pokemons";
 import Sidebar from "../components/Sidebar";
 
 // on créé un composant : une fonction dont le but est de créer un bout de page en HTML
@@ -29,9 +30,11 @@ function App() {
 
       <Footer />
 
-      <Counter />*/}
+      <Counter />
 
-      <Message />
+      <Message />*/}
+
+      <Pokemons />
     </div>
   );
 }
