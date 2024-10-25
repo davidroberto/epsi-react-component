@@ -33,7 +33,7 @@ function PokemonsPage() {
     <div>
       <h1>Pokemons</h1>
 
-      {pokemons ? (
+      {pokemons.length > 0 ? (
         <ul>
           {pokemons.map((pokemon) => {
             return <li key={pokemon.id}>{pokemon.name}</li>;
@@ -46,4 +46,4 @@ function PokemonsPage() {
   );
 }
 
-export default Pokemons;
+export default PokemonsPage;
