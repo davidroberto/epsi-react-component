@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 // Créez un composant Pokemons
 // qui doit afficher la liste des pokemons issus de cette API :
@@ -14,22 +15,24 @@ function PokemonsPage() {
   // je fais une requête fetch pour récupérer les pokemons
   // cette requête est asynchrone, donc je dois utiliser
   // then pour attendre qu'elle soit terminée
-  fetch("https://pokebuildapi.fr/api/v1/pokemon")
-    .then((response) => {
-      // quand la réponse du serveur est reçue
-      // je récupère le json et le transforme
-      // en JS
-      return response.json();
-    })
-    // la transformation du json en JS est aussi asynchrone
-    // donc j'utilise then pour attendre que ce soit terminé
-    // quand c'est terminé, je stocke les données dans le state
-    // ce qui force le composant à être rechargé (re-rendu),
-    // ça veut dire que le HTML
-    // affiché sur le navigateur est mis à jour
-    .then((data) => {
-      setPokemons(data);
-    });
+  if (pokemons.length === 0) {
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/151")
+      .then((response) => {
+        // quand la réponse du serveur est reçue
+        // je récupère le json et le transforme
+        // en JS
+        return response.json();
+      })
+      // la transformation du json en JS est aussi asynchrone
+      // donc j'utilise then pour attendre que ce soit terminé
+      // quand c'est terminé, je stocke les données dans le state
+      // ce qui force le composant à être rechargé (re-rendu),
+      // ça veut dire que le HTML
+      // affiché sur le navigateur est mis à jour
+      .then((data) => {
+        setPokemons(data);
+      });
+  }
 
   return (
     <>
@@ -39,7 +42,14 @@ function PokemonsPage() {
       {pokemons.length > 0 ? (
         <ul>
           {pokemons.map((pokemon) => {
-            return <li key={pokemon.id}>{pokemon.name}</li>;
+            return (
+              <li key={pokemon.id}>
+                {pokemon.name}
+                <Link to={"/pokemons/show/" + pokemon.id}>
+                  <button>Voir le pokémon</button>
+                </Link>
+              </li>
+            );
           })}
         </ul>
       ) : (

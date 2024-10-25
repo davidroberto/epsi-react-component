@@ -37,9 +37,24 @@ const PokemonShowPage = () => {
         <div>
           <h2>{pokemon.name}</h2>
           <img src={pokemon.image} alt={pokemon.name} />
-          <p>Type: {pokemon.type}</p>
-          <p>Poids: {pokemon.weight} kg</p>
-          <p>Taille: {pokemon.height} m</p>
+
+          <p>Stats</p>
+
+          <p>HP : {pokemon.stats.HP}</p>
+          <p>Attack : {pokemon.stats.attack}</p>
+          <p>Defense : {pokemon.stats.defense}</p>
+          <p>Special Attack : {pokemon.stats.special_attack}</p>
+
+          <p>Types</p>
+
+          {pokemon.apiTypes.map((type) => {
+            return (
+              <div key={type}>
+                <p>{type.name}</p>
+                <img src={type.image} alt={type.name} />
+              </div>
+            );
+          })}
         </div>
       ) : (
         <p>Chargement en cours...</p>
