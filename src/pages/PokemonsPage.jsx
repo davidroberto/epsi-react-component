@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 // Créez un composant Pokemons
 // qui doit afficher la liste des pokemons issus de cette API :
@@ -30,7 +32,8 @@ function PokemonsPage() {
     });
 
   return (
-    <div>
+    <>
+      <Header />
       <h1>Pokemons</h1>
 
       {pokemons.length > 0 ? (
@@ -42,7 +45,8 @@ function PokemonsPage() {
       ) : (
         <p>Chargment en cours !</p>
       )}
-    </div>
+      <Footer />
+    </>
   );
 }
 
