@@ -29,7 +29,7 @@ function Pokemons() {
     <div>
       <h1>Pokemons</h1>
 
-      {pokemons.length > 0 ? (
+      {pokemons ? (
         <ul>
           {pokemons.map((pokemon) => {
             return <li key={pokemon.id}>{pokemon.name}</li>;
