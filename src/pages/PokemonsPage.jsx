@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -7,15 +7,18 @@ import { Link } from "react-router-dom";
 // qui doit afficher la liste des pokemons issus de cette API :
 // https://pokebuildapi.fr/api/v1/pokemon
 
-function PokemonsPage() {
+const PokemonsPage = () => {
   // je créé un state pour stocker les pokemons
   // avec en valeur par défaut un tableau vide
   const [pokemons, setPokemons] = useState([]);
 
-  // je fais une requête fetch pour récupérer les pokemons
-  // cette requête est asynchrone, donc je dois utiliser
-  // then pour attendre qu'elle soit terminée
-  if (pokemons.length === 0) {
+  // j'utilise useEffect, qui me permet
+  // d'executer du code à certains moment des rendus
+  // du composant
+  // si je veux que mon code soit executé une seule fois
+  // au premier chargement, je passe mon code en à executer en
+  //premier argument du useEffect et un tableau vide en second
+  useEffect(() => {
     fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/151")
       .then((response) => {
         // quand la réponse du serveur est reçue
@@ -30,9 +33,10 @@ function PokemonsPage() {
       // ça veut dire que le HTML
       // affiché sur le navigateur est mis à jour
       .then((data) => {
+        // data = []
         setPokemons(data);
       });
-  }
+  }, []);
 
   return (
     <>
@@ -58,6 +62,6 @@ function PokemonsPage() {
       <Footer />
     </>
   );
-}
+};
 
 export default PokemonsPage;
